@@ -1,0 +1,20 @@
+# Code formatting (The uncompromising code formatter)
+black==26.1.0
+
+# Static code analysis (Linter for checking errors and coding standards)
+pylint==4.0.5
+
+# Testing framework (Simple and scalable test runner)
+pytest==9.0.2
+
+# Fast Python linter and formatter (Rust-based, replaces flake8, isort, etc.)
+pymupdf==1.27.1
+
+# Fast Python linter and formatter (Rust-based, replaces flake8, isort, etc.)
+ruff==0.15.1
+
+# Python client for the OpenAI API
+openai==1.63.2
+
+# Load environment variables from .env files
+python-dotenv==1.0.1
