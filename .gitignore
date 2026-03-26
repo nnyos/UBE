@@ -1,6 +1,6 @@
 **/.venv
 **/.env
-**/*.pdf
+# **/*.pdf
 **/__pycache__
 output/
 data/documents/
