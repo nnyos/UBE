@@ -18,12 +18,16 @@ client = OpenAI(
 )
 
 
-def ask_local_ai(prompt, model=None):
+def ask_local_ai(prompt, model=None, system=None):
     """
     Envía una consulta al modelo local usando la API compatible con OpenAI.
+
+    :param prompt: Mensaje del usuario.
+    :param model: Modelo a usar (opcional).
+    :param system: Mensaje de sistema (opcional); si no se pasa, se usa uno por defecto.
     """
-    # Usar el modelo por defecto si no se especifica uno
     target_model = model or DEFAULT_MODEL
+    system_content = system or "Eres un asistente útil corriendo localmente vía Ollama."
 
     print(f"📡 Enviando consulta a {target_model} en {OLLAMA_URL}...")
 
@@ -31,10 +35,10 @@ def ask_local_ai(prompt, model=None):
         response = client.chat.completions.create(
             model=target_model,
             messages=[
-                {"role": "system", "content": "Eres un asistente útil corriendo localmente vía Ollama."},
-                {"role": "user", "content": prompt}
+                {"role": "system", "content": system_content},
+                {"role": "user", "content": prompt},
             ],
-            temperature=0.7
+            temperature=0.7,
         )
 
         return response.choices[0].message.content
